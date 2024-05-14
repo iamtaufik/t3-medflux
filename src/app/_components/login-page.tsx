@@ -19,7 +19,6 @@ export default function Login() {
     e.preventDefault();
     if (email === "" || password === "") return false;
     signIn("custom-provider", {
-      callbackUrl: "/dashboard",
       email,
       password,
     })
