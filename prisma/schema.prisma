@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  userId    String   @unique @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String
+  address   String?
+  image     String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  id        Int      @id @default(autoincrement())
+
+  @@map("users")
+}
+
+model Medicine {
+  id            Int      @id @default(autoincrement())
+  medicineCode  String   @unique @map("medicine_code")
+  name          String
+  unit          String
+  disease       String
+  entryDate     DateTime @default(now()) @map("entry_date")
+  expiryDate    DateTime @map("expiry_date")
+  lastCheckDate DateTime @map("last_check_date")
+  stock         Int
+  maxStock      Int      @map("max_stock")
+  price         Float
+
+  @@map("medicines")
+}
+
+model Transaction {
+  id            Int      @id @default(autoincrement())
+  structNumber  String   @map("struct_number")
+  medicine_name String
+  medicine_type String
+  dateTime      DateTime @map("date_time")
+  quantity      Int
+  totalPrice    Float    @map("total_price")
+
+  @@map("transactions")
+}
