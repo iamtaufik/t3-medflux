@@ -151,11 +151,11 @@ const Page = () => {
         </p>
       </div>
       <div className="my-10 flex flex-col justify-between gap-8 px-4 md:flex-row md:px-10">
-        <Card className="md:w-1/2">
+        <Card className="w-full">
           <h2 className="text-xl font-bold">Demand Forecasting Model</h2>
 
           <div className="my-4 flex w-full flex-col items-end  gap-2">
-            <div className="w-full max-w-[250px]">
+            <div className="w-full ">
               {/* <DateRangePicker
                 className="w-full "
                 locale={id}
@@ -168,7 +168,7 @@ const Page = () => {
               /> */}
 
               <DatePicker
-                className="w-full"
+                className="w-full max-w-[250px]"
                 defaultValue={new Date()}
                 locale={id}
                 onValueChange={(val) =>
@@ -205,7 +205,7 @@ const Page = () => {
             connectNulls={true}
           />
         </Card>
-        <Card className="md:w-1/2">
+        {/* <Card className="md:w-1/2">
           <h2 className="text-xl font-bold">Disease Trend</h2>
           <div className="my-4 flex w-full justify-end gap-2">
             <div className="w-full max-w-[250px]">
@@ -227,9 +227,9 @@ const Page = () => {
             valueFormatter={(val) => val.toString()}
             showAnimation={true}
           />
-        </Card>
+        </Card> */}
       </div>
-      <div className="mb-10 flex flex-col  justify-between gap-8 px-4 md:flex-row md:px-10">
+      {/* <div className="mb-10 flex flex-col  justify-between gap-8 px-4 md:flex-row md:px-10">
         <Card className="md:w-1/2">
           <h2 className="text-xl font-bold">Stock Trend</h2>
           <div className="my-4 flex w-full justify-end gap-2">
@@ -275,7 +275,7 @@ const Page = () => {
             showAnimation={true}
           />
         </Card>
-      </div>
+      </div> */}
     </>
   );
 };
